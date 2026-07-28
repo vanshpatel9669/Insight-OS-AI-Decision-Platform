@@ -32,7 +32,7 @@ dependencies = [
     # at import time ("Numpy is not available") on a completely fresh
     # install (e.g. Docker) that isn't shadowed by an already-installed
     # older numpy left over from a previous local `pip install`.
-    "numpy>=1.26,<2",
+    "numpy>=1.26,<3",
     "sentence-transformers>=5.0",
     "llama-index-core>=0.14",
     "llama-index-embeddings-huggingface>=0.7",
