@@ -1,0 +1,28 @@
+services:
+  mongo:
+    image: mongo:7
+    ports:
+      - "27017:27017"
+    volumes:
+      - mongo-data:/data/db
+    healthcheck:
+      test: ["CMD", "mongosh", "--eval", "db.adminCommand('ping')"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  app:
+    build: .
+    ports:
+      - "8010:8010"
+    environment:
+      INSIGHT_MONGO_URI: mongodb://mongo:27017
+      INSIGHT_MONGO_DB: insight_os
+    depends_on:
+      mongo:
+        condition: service_healthy
+    volumes:
+      - ./storage:/app/storage
+
+volumes:
+  mongo-data:
