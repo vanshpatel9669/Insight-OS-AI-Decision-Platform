@@ -26,9 +26,9 @@ dependencies = [
     # transformers (>=4.45) requires torch>=2.4, which has no macOS x86_64
     # wheels past 2.2.2 — an unpinned resolve breaks differently depending
     # on the install machine. See docs/architecture.md.
-    "torch==2.2.2",
+    "torch==2.14.0",
     "transformers>=4.40,<4.45",
-    # torch==2.2.2 was built against NumPy's 1.x ABI; numpy>=2.0 breaks it
+    # torch==2.14.0 was built against NumPy's 1.x ABI; numpy>=2.0 breaks it
     # at import time ("Numpy is not available") on a completely fresh
     # install (e.g. Docker) that isn't shadowed by an already-installed
     # older numpy left over from a previous local `pip install`.
